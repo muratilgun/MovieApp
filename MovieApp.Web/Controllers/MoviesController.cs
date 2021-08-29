@@ -23,7 +23,12 @@ namespace MovieApp.Web.Controllers
                 new Movie {Title = "film 2", Description ="açıklama 2", Director = "yonetmen 2", Players=new string[]{"oyuncu 5", "oyuncu 6" },ImageUrl="3.jpg"}
 
             };
-            return View("Movies",filmListesi);
+      
+            var model = new MovieGenreViewModel()
+            {
+                Movies = filmListesi
+            };
+            return View("Movies",model);
         }
         public string Details()
         {
