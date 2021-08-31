@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MovieApp.Web.Data;
 using MovieApp.Web.Models;
 using System.Collections.Generic;
 
@@ -8,19 +9,11 @@ namespace MovieApp.Web.Controllers
     {
         public IActionResult Index()
         {
-            string filmBasligi = "Film Başlığı";
-            string filmAciklama = "Filmin Açıklaması";
-            string filmYonetmeni = "Filmin yönetmen adı";
-            string[] oyuncular = { "oyuncu 1", "oyuncu 2" };
-
-            var m = new Movie();
-            m.Title = filmBasligi;
-            m.Description = filmAciklama;
-            m.Director = filmYonetmeni;
-            m.Players = oyuncular;
-            m.ImageUrl = "1.jpg";
-
-            return View(m);
+            var model = new HomePageViewModel
+            {
+                PopularMovies = MovieRepository.Movies
+            };
+            return View(model);
 
         }
         public IActionResult About()
