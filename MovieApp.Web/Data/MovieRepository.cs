@@ -12,68 +12,62 @@ namespace MovieApp.Web.Data
         static MovieRepository()
         {
             _movies = new List<Movie>()
-            {
-                new Movie 
-                {
-                    MovieId = 1,
-                    Title = "film 1", 
-                    Description ="açıklama 1", 
-                    Director = "yonetmen 1", 
-                    Players=new string[]{"oyuncu 1", "oyuncu 2" }, 
-                    ImageUrl="1.jpg",
-                    GenreId = 1
-                },
-                new Movie 
-                {
-                    MovieId = 2,
-                    Title = "film 2", 
-                    Description ="açıklama 2",
-                    Director = "yonetmen 2", 
-                    Players=new string[]{"oyuncu 3", "oyuncu 4" },
-                    ImageUrl="2.jpg",
-                    GenreId = 1
-
-                },
-                new Movie
-                {
-                    MovieId = 3,
-                    Title = "film 3", 
-                    Description ="açıklama 3", 
-                    Director = "yonetmen 3", 
-                    Players=new string[]{"oyuncu 5", "oyuncu 6" },
-                    ImageUrl="3.jpg",
-                    GenreId = 3
-                },    new Movie
-                {
-                    MovieId = 4,
-                    Title = "film 4",
-                    Description ="açıklama 4",
-                    Director = "yonetmen 4",
-                    Players=new string[]{"oyuncu 7", "oyuncu 8" },
-                    ImageUrl="1.jpg",
-                    GenreId = 3
-                },
-                new Movie
-                {
-                    MovieId = 5,
-                    Title = "film 5",
-                    Description ="açıklama 5",
-                    Director = "yonetmen 5",
-                    Players=new string[]{"oyuncu 9", "oyuncu 10" },
-                    ImageUrl="2.jpg",
-                    GenreId = 3
-                },
-                new Movie
-                {
-                    MovieId = 6,
-                    Title = "film 6",
-                    Description ="açıklama 6",
-                    Director = "yonetmen 6",
-                    Players=new string[]{"oyuncu 11", "oyuncu 12" },
-                    ImageUrl="3.jpg",
-                    GenreId = 4
-                }
-            };
+{
+        new Movie {
+        MovieId=1,
+        Title="Jiu Jitsu",
+        Description="Every six years, an ancient order of jiu-jitsu fighters joins forces to battle a vicious race of alien invaders. But when a celebrated war hero goes down in defeat, the fate of the planet and mankind hangs in the balance.",
+        Director="Dimitri Logothetis",
+        Players=new string[] { "Nicolas Cage", "Alain Moussi"},
+        ImageUrl="1.jpg",
+        GenreId=1
+    },
+    new Movie {
+        MovieId=2,
+        Title="Fatman",
+        Description="A rowdy, unorthodox Santa Claus is fighting to save his declining business. Meanwhile, Billy, a neglected and precocious 12 year old, hires a hit m...",
+        Director="Eshom Nelms",
+        Players=new string[] { "Mel Gibson", "Walton Goggins","Michelle Lan"},
+        ImageUrl="2.jpg",
+        GenreId=1
+    },
+    new Movie {
+        MovieId=3,
+        Title="The Dalton Gang",
+        Description="When their brother Frank is killed by an outlaw, brothers Bob Dalton, Emmett Dalton and Gray Dalton join their local sheriff's department. When the...",
+        Director="Christopher Forbes",
+        Players=new string[] { "oyuncu 1","oyuncu 2"},
+        ImageUrl="3.jpg",
+        GenreId=3
+    },
+        new Movie {
+        MovieId=4,
+        Title="Tenet",
+        Description="Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of internat...",
+        Director="Christopher Nolan",
+        Players=new string[] { "Robert Pattinson", "Elizabeth Debicki"},
+        ImageUrl="4.jpg",
+        GenreId=3
+    },
+    new Movie {
+        MovieId=5,
+        Title="The Craft: Legacy",
+        Description="An eclectic foursome of aspiring teenage witches get more than they bargained for as they lean into their newfound powers.",
+        Director="Zoe Lister-Jones",
+        Players=new string[] { "Cailee Spaeny", "Zoey Luna"},
+        ImageUrl="5.jpg",
+        GenreId=3
+    },
+    new Movie {
+        MovieId=6,
+        Title="Hard Kill",
+        Description="The work of billionaire tech CEO Donovan Chalmers is so valuable that he hires mercenaries to protect it, and a terrorist group kidnaps his daughte...",
+        Director="Matt Eskandari",
+        Players=new string[] { "Bruce Willis", "Jesse Metcalfe"},
+        ImageUrl="6.jpg",
+        GenreId=4
+    }
+};
         }
 
         public static List<Movie> Movies
@@ -84,7 +78,7 @@ namespace MovieApp.Web.Data
             }
         }
 
-        public static void Add(Movie movie) 
+        public static void Add(Movie movie)
         {
             _movies.Add(movie);
         }

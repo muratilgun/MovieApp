@@ -15,16 +15,23 @@ namespace MovieApp.Web.Controllers
             return View();
         }
 
-        public IActionResult List(int? id)
+        public IActionResult List(int? id,string q)
         {
             //var controller = RouteData.Values["controller"];
             //var action = RouteData.Values["action"];
             //var genreid = RouteData.Values["id"];
+            //var kelime = HttpContext.Request.Query["q"].ToString();
 
             var movies = MovieRepository.Movies;
             if (id!=null)
             {
                 movies = movies.Where(m => m.GenreId == id).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(q))
+            {
+                movies = movies.Where(i => 
+                    i.Title.ToLower().Contains(q.ToLower()) || i.Description.ToLower().Contains(q.ToLower())).ToList();
             }
 
             var model = new MoviesViewModel()
