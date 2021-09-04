@@ -8,9 +8,12 @@
         <div class="col-md-9">
             <div class="card-body">
                 <h5 class="class-title">@Model.Title</h5>
-              <p>
-                  <a class=" btn btn-primary" href="/movies/details/@Model.MovieId">Details</a>
-              </p>
+                <p>
+                    <a class=" btn btn-primary" asp-controller="Movies" asp-action="Details"
+                      asp-route-id="@Model.MovieId">Details</a>
+                    <a class=" btn btn-primary" asp-controller="Movies" asp-action="Edit"
+                       asp-route-id="@Model.MovieId">Edit</a>
+                </p>
             </div>
         </div>
     </div>
