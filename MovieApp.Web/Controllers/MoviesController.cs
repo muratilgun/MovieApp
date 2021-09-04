@@ -14,7 +14,6 @@ namespace MovieApp.Web.Controllers
         {
             return View();
         }
-
         public IActionResult List(int? id,string q)
         {
             //var controller = RouteData.Values["controller"];
@@ -44,11 +43,24 @@ namespace MovieApp.Web.Controllers
         {
             return View(MovieRepository.GetById(id));
         }
-
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-
+        [HttpPost]
+        public IActionResult Create(string Title, string Description, string Director, string ImageUrl, int GenreId)
+        {
+            var m = new Movie()
+            {
+                Title = Title,
+                Description = Description,
+                Director = Director,
+                ImageUrl = ImageUrl,
+                GenreId = GenreId
+            };
+            MovieRepository.Add(m);
+            return RedirectToAction("List");
+        }
     }
 }
