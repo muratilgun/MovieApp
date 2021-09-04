@@ -45,6 +45,10 @@ namespace MovieApp.Web.Controllers
             return View(MovieRepository.GetById(id));
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
 
     }
 }
