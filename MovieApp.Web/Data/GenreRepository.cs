@@ -17,7 +17,8 @@ namespace MovieApp.Web.Data
                 new Genre{GenreId=1,Name="Macera"},
                 new Genre{GenreId=2,Name="Komedi"},
                 new Genre{GenreId=3,Name="Romantik"},
-                new Genre{GenreId=4,Name="Savaş"}
+                new Genre{GenreId=4,Name="Savaş"},
+                new Genre{GenreId=5,Name="Bilim Kurgu"}
             };
         }
         public static List<Genre> Genres
