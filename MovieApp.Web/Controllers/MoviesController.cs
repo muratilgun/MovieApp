@@ -53,9 +53,14 @@ namespace MovieApp.Web.Controllers
         [HttpPost]
         public IActionResult Create(Movie m)
         {
+            if (ModelState.IsValid)
+            {
+                MovieRepository.Add(m);
+                return RedirectToAction("List");
 
-            MovieRepository.Add(m);
-            return RedirectToAction("List");
+            }
+            ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
+            return View();
         }
 
         [HttpGet]
@@ -68,9 +73,15 @@ namespace MovieApp.Web.Controllers
         [HttpPost]
         public IActionResult Edit(Movie m)
         {
-            MovieRepository.Edit(m);
-            return RedirectToAction("Details","Movies", new {@id = m.MovieId});
-            
+            if (ModelState.IsValid)
+            {
+                MovieRepository.Edit(m);
+                return RedirectToAction("Details", "Movies", new { @id = m.MovieId });
+
+            }
+            ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
+            return View();
+
         }
 
     }
