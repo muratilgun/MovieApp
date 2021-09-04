@@ -49,16 +49,9 @@ namespace MovieApp.Web.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(string Title, string Description, string Director, string ImageUrl, int GenreId)
+        public IActionResult Create(Movie m)
         {
-            var m = new Movie()
-            {
-                Title = Title,
-                Description = Description,
-                Director = Director,
-                ImageUrl = ImageUrl,
-                GenreId = GenreId
-            };
+
             MovieRepository.Add(m);
             return RedirectToAction("List");
         }
