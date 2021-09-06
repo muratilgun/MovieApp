@@ -57,7 +57,6 @@ namespace MovieApp.Web.Controllers
             {
                 MovieRepository.Add(m);
                 return RedirectToAction("List");
-
             }
             ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
             return View();
@@ -77,11 +76,16 @@ namespace MovieApp.Web.Controllers
             {
                 MovieRepository.Edit(m);
                 return RedirectToAction("Details", "Movies", new { @id = m.MovieId });
-
             }
             ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
-            return View();
+            return View(m);
+        }
 
+        [HttpPost]
+        public IActionResult Delete(int movieId)
+        {
+            MovieRepository.Delete(movieId);
+            return RedirectToAction("List");
         }
 
     }

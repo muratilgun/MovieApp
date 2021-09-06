@@ -103,5 +103,14 @@ namespace MovieApp.Web.Data
                 }
             }
         }
+
+        public static void Delete(int movieId)
+        {
+            var movie = GetById(movieId);
+            if (movie != null)
+            {
+                _movies.Remove(movie);
+            }
+        }
     }
 }
