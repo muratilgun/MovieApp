@@ -15,6 +15,7 @@
                        asp-route-id="@Model.MovieId">Edit</a>
                     
                     <form asp-controller="Movies" asp-action="Delete" asp-route-id="@Model.MovieId" method="post" style="display: inline;">
+                        <input type="hidden" name="Title" value="@Model.Title" />
                         <input type="hidden" name="MovieId" value="@Model.MovieId" />
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
