@@ -25,7 +25,6 @@ namespace MovieApp.Web.Data
                             new List<Movie>()
                     {
                         new Movie {
-                                    MovieId=1,
                                     Title="Jiu Jitsu",
                                     Description="Every six years, an ancient order of jiu-jitsu fighters joins f    o   rces to        battle     a       vicious race of alien invaders. But when a c el  ebrated war    hero goes  down in     defeat, the fate    of   the planet and m       ankind hangs in    the balance.",
                                     //Director="Dimitri Logothetis",
@@ -34,7 +33,6 @@ namespace MovieApp.Web.Data
                                     GenreId=1
                                    },
                         new Movie {
-                        MovieId=2,
                         Title="Fatman",
                         Description="A rowdy, unorthodox Santa Claus is fighting to save his declining business. Meanwhile, Billy, a neglected and precocious 12 year old, hires a hit m...",
                        // Director="Eshom Nelms",
@@ -43,7 +41,6 @@ namespace MovieApp.Web.Data
                         GenreId=1
                     },
                         new Movie {
-                                    MovieId=3,
                             Title="The Dalton Gang",
         Description="When their brother Frank is killed by an outlaw, brothers Bob Dalton, Emmett Dalton and Gray Dalton join their local sheriff's department. When the...",
       //  Director="Christopher Forbes",
@@ -52,7 +49,6 @@ namespace MovieApp.Web.Data
         GenreId=3
     },
                         new Movie {
-                        MovieId=4,
                         Title="Tenet",
                         Description="Armed with only one word - Tenet - and fighting for the survival ofthe   entire        world,      the Protagonist journeys through a twilight worl of    internat...",
                       //  Director="Christopher Nolan",
@@ -61,7 +57,6 @@ namespace MovieApp.Web.Data
                         GenreId=3
     },
                         new Movie {
-                            MovieId=5,
                             Title="The Craft: Legacy",
                             Description="An eclectic foursome of aspiring teenage witches get more thanthey       bargained     for     as       they lean into their newfound powers.",
                            // Director="Zoe Lister-Jones",
@@ -70,7 +65,6 @@ namespace MovieApp.Web.Data
                             GenreId=3
                         },
                         new Movie {
-                            MovieId=6,
                             Title="Hard Kill",
                             Description="The work of billionaire tech CEO Donovan Chalmers is so valuablethat     he  hires                mercenaries to protect it, and a terroristgroup kidnaps    his    daughte...",
                            // Director="Matt Eskandari",
@@ -88,11 +82,11 @@ namespace MovieApp.Web.Data
                              new List<Genre>
                              {
 
-                                 new Genre{GenreId=1,Name="Macera"},
-                                 new Genre{GenreId=2,Name="Komedi"},
-                                 new Genre{GenreId=3,Name="Romantik"},
-                                 new Genre{GenreId=4,Name="Savaş"},
-                                 new Genre{GenreId=5,Name="Bilim Kurgu"}
+                                 new Genre{Name="Macera"},
+                                 new Genre{Name="Komedi"},
+                                 new Genre{Name="Romantik"},
+                                 new Genre{Name="Savaş"},
+                                 new Genre{Name="Bilim Kurgu"}
                              }
                         );
                 }
