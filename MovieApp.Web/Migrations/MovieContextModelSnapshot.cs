@@ -16,6 +16,26 @@ namespace MovieApp.Web.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.9");
 
+            modelBuilder.Entity("MovieApp.Web.Entity.Director", b =>
+                {
+                    b.Property<int>("DirectorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Biograhy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("DirectorId");
+
+                    b.ToTable("Directors");
+                });
+
             modelBuilder.Entity("MovieApp.Web.Entity.Genre", b =>
                 {
                     b.Property<int>("GenreId")
@@ -39,9 +59,6 @@ namespace MovieApp.Web.Migrations
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Director")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("GenreId")
