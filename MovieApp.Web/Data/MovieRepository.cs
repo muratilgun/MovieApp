@@ -19,7 +19,7 @@ namespace MovieApp.Web.Data
         Title="Jiu Jitsu",
         Description="Every six years, an ancient order of jiu-jitsu fighters joins forces to battle a vicious race of alien invaders. But when a celebrated war hero goes down in defeat, the fate of the planet and mankind hangs in the balance.",
         Director="Dimitri Logothetis",
-        Players=new string[] { "Nicolas Cage", "Alain Moussi"},
+        //Players=new string[] { "Nicolas Cage", "Alain Moussi"},
         ImageUrl="1.jpg",
         GenreId=1
     },
@@ -28,7 +28,7 @@ namespace MovieApp.Web.Data
         Title="Fatman",
         Description="A rowdy, unorthodox Santa Claus is fighting to save his declining business. Meanwhile, Billy, a neglected and precocious 12 year old, hires a hit m...",
         Director="Eshom Nelms",
-        Players=new string[] { "Mel Gibson", "Walton Goggins","Michelle Lan"},
+        //Players=new string[] { "Mel Gibson", "Walton Goggins","Michelle Lan"},
         ImageUrl="2.jpg",
         GenreId=1
     },
@@ -37,7 +37,7 @@ namespace MovieApp.Web.Data
         Title="The Dalton Gang",
         Description="When their brother Frank is killed by an outlaw, brothers Bob Dalton, Emmett Dalton and Gray Dalton join their local sheriff's department. When the...",
         Director="Christopher Forbes",
-        Players=new string[] { "oyuncu 1","oyuncu 2"},
+        //Players=new string[] { "oyuncu 1","oyuncu 2"},
         ImageUrl="3.jpg",
         GenreId=3
     },
@@ -46,7 +46,7 @@ namespace MovieApp.Web.Data
         Title="Tenet",
         Description="Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of internat...",
         Director="Christopher Nolan",
-        Players=new string[] { "Robert Pattinson", "Elizabeth Debicki"},
+        //Players=new string[] { "Robert Pattinson", "Elizabeth Debicki"},
         ImageUrl="4.jpg",
         GenreId=3
     },
@@ -55,7 +55,7 @@ namespace MovieApp.Web.Data
         Title="The Craft: Legacy",
         Description="An eclectic foursome of aspiring teenage witches get more than they bargained for as they lean into their newfound powers.",
         Director="Zoe Lister-Jones",
-        Players=new string[] { "Cailee Spaeny", "Zoey Luna"},
+        //Players=new string[] { "Cailee Spaeny", "Zoey Luna"},
         ImageUrl="5.jpg",
         GenreId=3
     },
@@ -64,7 +64,7 @@ namespace MovieApp.Web.Data
         Title="Hard Kill",
         Description="The work of billionaire tech CEO Donovan Chalmers is so valuable that he hires mercenaries to protect it, and a terrorist group kidnaps his daughte...",
         Director="Matt Eskandari",
-        Players=new string[] { "Bruce Willis", "Jesse Metcalfe"},
+        //Players=new string[] { "Bruce Willis", "Jesse Metcalfe"},
         ImageUrl="6.jpg",
         GenreId=4
     }
