@@ -91,37 +91,87 @@ namespace MovieApp.Web.Data
                                            Genre = genres[3]
                                            }
                             };
-            var users = new List<User>() { new User() { Username="usera", Email="usera@gmail.com", Password="1234", ImageUrl="person1.jpg"},
-            new User() { Username="userb", Email="userb@gmail.com", Password="1234", ImageUrl="person2.jpg"},
-            new User() { Username="userc", Email="userc@gmail.com", Password="1234", ImageUrl="person3.jpg",
-                Person= new Person
+            var users = new List<User>()
+            { 
+                new User() { Username="usera", Email="usera@gmail.com", Password="1234", ImageUrl="person1.jpg"},
+                new User() { Username="userb", Email="userb@gmail.com", Password="1234", ImageUrl="person2.jpg"},
+                new User() { Username="userc", Email="userc@gmail.com", Password="1234", ImageUrl="person3.jpg"},
+                new User() { Username="userd", Email="userd@gmail.com", Password="1234", ImageUrl="person4.jpg"}
+            };
+            var people = new List<Person>()
+            {
+                new Person
                 {
-                    Name="Personel 1",
-                    Biograhy="Tanıtım 1"
-                }
-            },
-            new User() { Username="userd", Email="userd@gmail.com", Password="1234", ImageUrl="person4.jpg",
-                Person= new Person
+                    Name = "Personel 1",
+                    Biograhy = "Tanıtım 1",
+                    User = users[0]
+                },
+                new Person
                 {
                     Name="Personel 2",
-                    Biograhy="Tanıtım 2"
+                    Biograhy="Tanıtım 2",
+                    User = users[1]
                 }
-            }};
+            };
+            var crews = new List<Crew>() 
+            {
+                new Crew()
+                {
+                    Movie = movies[0],
+                    Person = people[0],
+                    Job = "Yönetmen"
+                },
+                new Crew()
+                {
+                    Movie = movies[0],
+                    Person = people[1],
+                    Job = "Yönetmen Yard."
+                }
+            };
+            var casts = new List<Cast>() 
+            {
+                new Cast()
+                {
+                    Movie = movies[0],
+                    Person = people[0],
+                    Name = "Oyuncu Adı 1",
+                    Character ="Karakter 1"
+                },
+                new Cast()
+                {
+                    Movie = movies[0],
+                    Person = people[1],
+                    Name = "Oyuncu Adı 2",
+                    Character ="Karakter 2"
+                }
+            };
+
             if (context.Database.GetPendingMigrations().Count() == 0)
             {
                 if (context.Genres.Count() == 0)
                 {
-                    context.Genres.AddRange(genres) ;
+                    context.Genres.AddRange(genres);
                 }
 
                 if (context.Movies.Count() == 0)
                 {
                     context.Movies.AddRange(movies);
                 }
-
                 if (context.Users.Count() == 0)
                 {
                     context.Users.AddRange(users);
+                }
+                if (context.Person.Count() == 0)
+                {
+                    context.Person.AddRange(people);
+                }
+                if (context.Crews.Count() == 0)
+                {
+                    context.Crews.AddRange(crews);
+                }
+                if (context.Casts.Count() == 0)
+                {
+                    context.Casts.AddRange(casts);
                 }
 
                 context.SaveChanges();
