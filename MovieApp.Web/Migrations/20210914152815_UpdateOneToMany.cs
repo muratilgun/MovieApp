@@ -17,7 +17,7 @@ namespace MovieApp.Web.Migrations
                 column: "GenreId",
                 principalTable: "Genres",
                 principalColumn: "GenreId",
-                onDelete: ReferentialAction.SetNull);
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
