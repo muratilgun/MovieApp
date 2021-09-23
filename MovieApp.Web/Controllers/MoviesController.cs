@@ -7,7 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieApp.Web.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace MovieApp.Web.Controllers
 {
@@ -36,9 +35,7 @@ namespace MovieApp.Web.Controllers
             var movies = _context.Movies.AsQueryable();
             if (id != null)
             {
-                movies = movies
-                    .Include(m => m.Genres)
-                    .Where(m => m.Genres.Any(g => g.GenreId == id));
+                movies = movies.Where(m => m.GenreId == id);
             }
 
             if (!string.IsNullOrEmpty(q))
