@@ -48,7 +48,12 @@ namespace MovieApp.Web.Data
                                             //Director="Dimitri Logothetis",
                                             //Players=new string[] { "Nicolas Cage", "Alain Moussi"},
                                             ImageUrl="1.jpg",
-                                            Genre = genres[0]
+                                            Genres = new List<Genre>
+                                            {
+                                                genres[0],
+                                                new Genre(){Name="Yeni Tür"},
+                                                genres[1]
+                                            }
                                            },
                                 new Movie {
                                             Title="Fatman",
@@ -56,7 +61,11 @@ namespace MovieApp.Web.Data
                                             // Director="Eshom Nelms",
                                             //Players=new string[] { "Mel Gibson", "Walton Goggins","Michelle Lan"},
                                             ImageUrl="2.jpg",
-                                            Genre = genres[1]
+                                            Genres = new List<Genre>
+                                            {
+                                                genres[0],
+                                                genres[2]
+                                            }
                                             },
                                 new Movie {
                                             Title="The Dalton Gang",
@@ -64,7 +73,11 @@ namespace MovieApp.Web.Data
                                             //  Director="Christopher Forbes",
                                             //Players=new string[] { "oyuncu 1","oyuncu 2"},
                                             ImageUrl="3.jpg",
-                                            Genre = genres[1]
+                                            Genres = new List<Genre>
+                                            {
+                                                genres[1],
+                                                genres[3]
+                                            }
                                            },
                                 new Movie {
                                            Title="Tenet",
@@ -72,7 +85,11 @@ namespace MovieApp.Web.Data
                                            //  Director="Christopher Nolan",
                                            //Players=new string[] { "Robert Pattinson", "Elizabeth Debicki"},
                                            ImageUrl="4.jpg",
-                                           Genre = genres[2]
+                                            Genres = new List<Genre>
+                                            {
+                                                genres[0],
+                                                genres[1]
+                                            }
                                           },
                                 new Movie {
                                            Title="The Craft: Legacy",
@@ -80,7 +97,11 @@ namespace MovieApp.Web.Data
                                            // Director="Zoe Lister-Jones",
                                            //Players=new string[] { "Cailee Spaeny", "Zoey Luna"},
                                            ImageUrl="5.jpg",
-                                           Genre = genres[2]
+                                            Genres = new List<Genre>
+                                            {
+                                                genres[2],
+                                                genres[4]
+                                            }
                                            },
                                 new Movie {
                                            Title="Hard Kill",
@@ -88,7 +109,11 @@ namespace MovieApp.Web.Data
                                            // Director="Matt Eskandari",
                                            //Players=new string[] { "Bruce Willis", "Jesse Metcalfe"},
                                            ImageUrl="6.jpg",
-                                           Genre = genres[3]
+                                            Genres = new List<Genre>
+                                            {
+                                                genres[1],
+                                                genres[2]
+                                            }
                                            }
                             };
             var users = new List<User>()
