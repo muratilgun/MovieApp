@@ -54,7 +54,11 @@ namespace LINQSamples
                 //    Console.WriteLine(p.ProductName + " " + p.UnitPrice);
                 //} 
                 #endregion
-
+                var products = db.Products.Skip(15).Take(5).ToList();
+                foreach (var p in products)
+                {
+                    Console.WriteLine(p.ProductName + " " + p.ProductId);
+                }
             }
             Console.ReadLine();
         }
