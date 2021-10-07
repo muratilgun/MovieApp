@@ -25,6 +25,7 @@ namespace MovieApp.Web.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        
+        public List<Genre> SelectedGenres { get; set; }
+
     }
 }
