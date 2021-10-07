@@ -141,14 +141,21 @@ namespace LINQSamples
                 //    product.UnitPrice = 28; db.Update(product); db.SaveChanges();
                 //} 
                 #endregion
+                #region ESKi6
+                //var p = db.Products.Find(99);
+                //if (p != null)
+                //{
+                //    db.Products.Remove(p);
+                //    db.SaveChanges();
+                //}
 
-                var p = db.Products.Find(99);
-                if (p != null)
-                {
-                    db.Products.Remove(p);
-                    db.SaveChanges();
-                }
+                var p = new Product() { ProductId = 87 };
+                //db.Entry(p).State = EntityState.Deleted;
+                db.Products.Remove(p);
+                db.SaveChanges();
 
+                #endregion
+                
             }
             Console.ReadLine();
         }
