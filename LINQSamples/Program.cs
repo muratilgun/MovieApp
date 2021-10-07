@@ -1,4 +1,5 @@
 ﻿using LINQSamples.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -53,12 +54,101 @@ namespace LINQSamples
                 //{
                 //    Console.WriteLine(p.ProductName + " " + p.UnitPrice);
                 //} 
+                //var products = db.Products.Skip(15).Take(5).ToList();
+                //foreach (var p in products)
+                //{
+                //    Console.WriteLine(p.ProductName + " " + p.ProductId);
+                //}
                 #endregion
-                var products = db.Products.Skip(15).Take(5).ToList();
-                foreach (var p in products)
+                #region ESKİ3
+                //var result = db.Products.Count();
+                //var result = db.Products.Count(i => i.UnitPrice > 10 && i.UnitPrice < 30);
+                //var result = db.Products.Count(i => !i.Discontinued);
+                //var result = db.Products.Min(p => p.UnitPrice);
+                //var result = db.Products.Where(p => p.CategoryId == 2).Max(p => p.UnitPrice);
+                //var result = db.Products.Where(p => !p.Discontinued ).Average(p => p.UnitPrice);
+                //var result = db.Products.Where(p => !p.Discontinued ).Sum(p => p.UnitPrice);
+
+
+                //var result = db.Products.OrderBy(o=> o.UnitPrice).ToList();
+                //var result = db.Products.OrderByDescending(o=> o.UnitPrice).ToList();
+                //var result = db.Products.OrderByDescending(o=> o.UnitPrice).FirstOrDefault();
+                //var result = db.Products.OrderByDescending(o=> o.UnitPrice).LastOrDefault();
+
+                //Console.WriteLine(result.ProductName + " " + result.UnitPrice);
+
+                //foreach (var item in result)
+                //{
+                //    Console.WriteLine(item.ProductName + ' ' + item.UnitPrice);
+
+                //}
+
+                #endregion
+                #region ESKi4
+                //var p1 = new Product()
+                //{
+                //    ProductName = "yeni 1 ürün"
+                //};
+                //db.Products.Add(p1);
+                //db.SaveChanges();
+
+                //Console.WriteLine("Veri eklendi.");
+                //Console.WriteLine(p1.ProductId);
+                //var category = db.Categories.Where(i => i.CategoryName == "Beverages").FirstOrDefault();
+                //var p1 = new Product() {ProductName = "yeni 2 ürün", CategoryId = 1};
+                //var p2 = new Product() {ProductName = "yeni 3 ürün", Category = category };
+                //var p3 = new Product() {ProductName = "yeni 4 ürün", Category = new Category() {CategoryName = "yeni kategori" } };
+
+                //db.Products.AddRange(p1,p2);
+                //db.SaveChanges();
+
+                //Console.WriteLine("Veriler eklendi.");
+                //Console.WriteLine("Yeni 2 ürün : "+ p1.ProductId + " " + " Yeni 3 ürün : " + p2.ProductId);
+
+                //Kategoriye göre ürün ekleme
+                //var category = db.Categories.Where(i => i.CategoryName == "Beverages").FirstOrDefault();
+                //var p1 = new Product() { ProductName = "yeni 5 ürün"};
+                //var p2 = new Product() { ProductName = "yeni 6 ürün" };
+
+                //category.Products.Add(p1);
+                //category.Products.Add(p2);
+                //db.SaveChanges();
+
+                //Console.WriteLine("Veriler eklendi.");
+                //Console.WriteLine("Yeni 5 ürün : " + p1.ProductId + " " + " Yeni 6 ürün : " + p2.ProductId);
+
+                #endregion
+                #region ESKİ5
+                //// change tracking
+                //var product = db.Products
+                //    //.AsNoTracking()
+                //    .FirstOrDefault(p => p.ProductId == 1);
+                //if (product != null)
+                //{
+                //    product.UnitsInStock += 10;
+                //    db.SaveChanges();
+                //    Console.WriteLine("veri güncellendi.");
+                //}
+                //select olmadanda update yapılabilir.
+                //var p = new Product() { ProductId = 1 };
+                //db.Products.Attach(p);
+                //p.UnitsInStock = 50;
+                //db.SaveChanges();
+                //Console.WriteLine("işlem tamam");
+                //var product = db.Products.Find(1);
+                //if (product != null)
+                //{
+                //    product.UnitPrice = 28; db.Update(product); db.SaveChanges();
+                //} 
+                #endregion
+
+                var p = db.Products.Find(99);
+                if (p != null)
                 {
-                    Console.WriteLine(p.ProductName + " " + p.ProductId);
+                    db.Products.Remove(p);
+                    db.SaveChanges();
                 }
+
             }
             Console.ReadLine();
         }
