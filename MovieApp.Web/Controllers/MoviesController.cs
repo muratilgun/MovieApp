@@ -53,64 +53,67 @@ namespace MovieApp.Web.Controllers
             return View("Movies", model);
 
         }
-        [HttpGet]
-        public IActionResult Details(int id)
-        {
-            return View(_context.Movies.Find(id));
-        }
-        [HttpGet]
-        public IActionResult Create()
-        {
-            ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Create(Movie m)
-        {
-            if (ModelState.IsValid)
-            {
-                // MovieRepository.Add(m);
+        
+        #region ESKİ METOTLAR
+        //[HttpGet]
+        //public IActionResult Details(int id)
+        //{
+        //    return View(_context.Movies.Find(id));
+        //}
+        //[HttpGet]
+        //public IActionResult Create()
+        //{
+        //    ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult Create(Movie m)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        // MovieRepository.Add(m);
 
-                _context.Movies.Add(m);
-                _context.SaveChanges();
-                TempData["Message"] = $"{m.Title} isimli film eklendi.";
-                return RedirectToAction("List");
-            }
-            ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
-            return View();
-        }
+        //        _context.Movies.Add(m);
+        //        _context.SaveChanges();
+        //        TempData["Message"] = $"{m.Title} isimli film eklendi.";
+        //        return RedirectToAction("List");
+        //    }
+        //    ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
+        //    return View();
+        //}
 
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
-            return View(_context.Movies.Find(id));
-        }
+        //[HttpGet]
+        //public IActionResult Edit(int id)
+        //{
+        //    ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
+        //    return View(_context.Movies.Find(id));
+        //}
 
-        [HttpPost]
-        public IActionResult Edit(Movie m)
-        {
-            if (ModelState.IsValid)
-            {
-                //MovieRepository.Edit(m);
-                _context.Movies.Update(m);
-                _context.SaveChanges();
-                return RedirectToAction("Details", "Movies", new { @id = m.MovieId });
-            }
-            ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
-            return View(m);
-        }
+        //[HttpPost]
+        //public IActionResult Edit(Movie m)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        //MovieRepository.Edit(m);
+        //        _context.Movies.Update(m);
+        //        _context.SaveChanges();
+        //        return RedirectToAction("Details", "Movies", new { @id = m.MovieId });
+        //    }
+        //    ViewBag.Genres = new SelectList(_context.Genres.ToList(), "GenreId", "Name");
+        //    return View(m);
+        //}
 
-        [HttpPost]
-        public IActionResult Delete(int movieId, string title)
-        {
-            //MovieRepository.Delete(movieId);
-            var movie = _context.Movies.Find(movieId);
-            _context.Movies.Remove(movie);
-            _context.SaveChanges();
-            TempData["Message"] = $"{title} isimli film silindi.";
-            return RedirectToAction("List");
-        }
+        //[HttpPost]
+        //public IActionResult Delete(int movieId, string title)
+        //{
+        //    //MovieRepository.Delete(movieId);
+        //    var movie = _context.Movies.Find(movieId);
+        //    _context.Movies.Remove(movie);
+        //    _context.SaveChanges();
+        //    TempData["Message"] = $"{title} isimli film silindi.";
+        //    return RedirectToAction("List");
+        //}
 
+        #endregion
     }
 }
