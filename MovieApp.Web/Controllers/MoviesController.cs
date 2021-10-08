@@ -53,13 +53,13 @@ namespace MovieApp.Web.Controllers
             return View("Movies", model);
 
         }
-        
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            return View(_context.Movies.Find(id));
+        }
         #region ESKİ METOTLAR
-        //[HttpGet]
-        //public IActionResult Details(int id)
-        //{
-        //    return View(_context.Movies.Find(id));
-        //}
+
         //[HttpGet]
         //public IActionResult Create()
         //{
