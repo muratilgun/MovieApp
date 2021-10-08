@@ -18,7 +18,6 @@ namespace MovieApp.Web.Controllers
         {
             _context = context;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -51,7 +50,7 @@ namespace MovieApp.Web.Controllers
             entity.Description = model.Description;
             entity.ImageUrl = model.ImageUrl;
             entity.Genres = genreIds
-                .Select(id => _context.Genres.FirstOrDefault(i=> i.GenreId == id))
+                .Select(id => _context.Genres.FirstOrDefault(i => i.GenreId == id))
                 .ToList();
             _context.SaveChanges();
             return RedirectToAction("MovieList");
@@ -63,8 +62,8 @@ namespace MovieApp.Web.Controllers
             {
                 Movies = _context
                 .Movies
-                .Include(m=> m.Genres)
-                .Select(m=> new AdminMovieViewModel
+                .Include(m => m.Genres)
+                .Select(m => new AdminMovieViewModel
                 {
                     MovieId = m.MovieId,
                     Title = m.Title,
@@ -74,10 +73,9 @@ namespace MovieApp.Web.Controllers
                 .ToList()
             });
         }
-
         public IActionResult GenreList()
         {
-            return View(new AdminGenresViewModel 
+            return View(new AdminGenresViewModel
             {
                 Genres = _context.Genres.Select(g => new AdminGenreViewModel
                 {
@@ -87,7 +85,6 @@ namespace MovieApp.Web.Controllers
                 }).ToList()
             });
         }
-
         public IActionResult GenreUpdate(int? id)
         {
             if (id == null)
@@ -99,7 +96,7 @@ namespace MovieApp.Web.Controllers
                 {
                     GenreId = g.GenreId,
                     Name = g.Name,
-                    Movies = g.Movies.Select(i => new AdminMovieViewModel 
+                    Movies = g.Movies.Select(i => new AdminMovieViewModel
                     {
                         MovieId = i.MovieId,
                         Title = i.Title,
@@ -109,6 +106,22 @@ namespace MovieApp.Web.Controllers
                 .FirstOrDefault(g => g.GenreId == id);
 
             return entity == null ? NotFound() : View(entity);
+        }
+
+        [HttpPost]
+        public IActionResult GenreUpdate(AdminGenreEditViewModel model, int[] movieIds)
+        {
+            var entity = _context.Genres.Include("Movies").FirstOrDefault(i => i.GenreId == model.GenreId);
+            if (entity == null)
+                return NotFound();
+
+            entity.Name = model.Name;
+            foreach (var id in movieIds)
+            {
+                entity.Movies.Remove(entity.Movies.FirstOrDefault(m => m.MovieId == id));
+            }
+            _context.SaveChanges();
+            return RedirectToAction("GenreList");
         }
     }
 }
