@@ -8,7 +8,7 @@
             <div class="mb-3">
                 <label asp-for="UserName"></label>
                 <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName"  class="text-danger"></span>
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="Name"></label>
@@ -37,7 +37,7 @@
                 <label asp-for="Url"></label>
                 <input asp-for="Url" class="form-control" />
                 <span asp-validation-for="Url" class="text-danger"></span>
-            </div>           
+            </div>
             <div class="mb-3">
                 <label asp-for="BirthDate"></label>
                 <input asp-for="BirthDate" class="form-control" />
@@ -46,3 +46,9 @@
         </div>
     </div>
 </form>
+
+@section scripts 
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}
