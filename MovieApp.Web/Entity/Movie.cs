@@ -10,6 +10,10 @@ namespace MovieApp.Web.Entity
 {
     public class Movie
     {
+        public Movie()
+        {
+            Genres = new List<Genre>();
+        }
         //[Key,DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MovieId { get; set; }
         public string Title { get; set; }
