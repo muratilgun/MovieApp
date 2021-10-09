@@ -91,9 +91,9 @@ namespace MovieApp.Web.Controllers
                 .ToList()
             });
         }
-        public IActionResult GenreList()
+        private AdminGenresViewModel GetGenres()
         {
-            return View(new AdminGenresViewModel
+            return new AdminGenresViewModel
             {
                 Genres = _context.Genres.Select(g => new AdminGenreViewModel
                 {
@@ -101,7 +101,26 @@ namespace MovieApp.Web.Controllers
                     Name = g.Name,
                     Count = g.Movies.Count
                 }).ToList()
-            });
+            };
+        }
+        public IActionResult GenreList()
+        {
+            return View(GetGenres());
+        }
+        [HttpPost]
+        public IActionResult GenreCreate(AdminGenresViewModel model)
+        {
+            if (model.Name !=null && model.Name.Length<3)
+            {
+                ModelState.AddModelError("Name", "Tür adı en az 3 karakterli olmalıdır.");
+            }
+            if (ModelState.IsValid)
+            {
+                _context.Genres.Add(new Genre { Name = model.Name});
+                _context.SaveChanges();
+                return RedirectToAction("GenreList");
+            }
+            return View("GenreList",GetGenres());
         }
         public IActionResult GenreUpdate(int? id)
         {
