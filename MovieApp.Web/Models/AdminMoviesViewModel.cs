@@ -30,6 +30,9 @@ namespace MovieApp.Web.Models
         [Required(ErrorMessage = "film açıklama girmelisiniz.")]
         [StringLength(3000, MinimumLength = 10, ErrorMessage = "film açıklama için 10-3000 karakter girmelisiniz.")]
         public string Description { get; set; }
+
+        [Required(ErrorMessage = "En az bir tür girmelisiniz.")]
+        public int[] GenreIds { get; set; }
     }
     public class AdminEditMovieViewModel
     {
