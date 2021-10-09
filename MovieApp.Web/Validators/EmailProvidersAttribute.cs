@@ -15,11 +15,11 @@ namespace MovieApp.Web.Validators
             {
                 email = value.ToString();
             }
-            if (!email.EndsWith("@gmail.com") || !email.EndsWith("@hotmail.com"))
+            if (email.EndsWith("@gmail.com") || email.EndsWith("@hotmail.com"))
             {
-                return new ValidationResult(ErrorMessage = "Hatalı eposta sunucusu.");
+                return ValidationResult.Success;
             }
-            return ValidationResult.Success;
+            return new ValidationResult(ErrorMessage = "Hatalı eposta sunucusu.");
         }
     }
 }

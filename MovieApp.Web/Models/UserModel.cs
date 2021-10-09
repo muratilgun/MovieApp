@@ -21,6 +21,7 @@ namespace MovieApp.Web.Models
 
         [Required(ErrorMessage ="E-mail adresi boş bırakılamaz.")]
         [EmailAddress]
+        [EmailProviders]
         public string Email { get; set; }
 
         [Required(ErrorMessage ="Şifre alanı boş bırakılamaz.")]
