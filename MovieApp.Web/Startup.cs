@@ -27,7 +27,7 @@ namespace MovieApp.Web
             services.AddDbContext<MovieContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MSSQLConnection")));
             /*options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))*/
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddViewOptions(options => options.HtmlHelperOptions.ClientValidationEnabled =true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

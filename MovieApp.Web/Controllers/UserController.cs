@@ -16,7 +16,19 @@ namespace MovieApp.Web.Controllers
         [HttpPost]
         public IActionResult CreateUser(UserModel model)
         {
+
+
             return View();
+        }
+        [AcceptVerbs("GET","POST")] /*Remote Attribute Kullanımına örnek üzerinde daha çalışılacak*/
+        public IActionResult VerifyUserName(string UserName)
+        {
+            var users = new List<string> { "deneme", "deneme2" };
+            if (users.Any(i => i == UserName))
+            {
+                return Json("Bu kullanıcı ismi daha önce alınmıştır");
+            }
+            return Json(true);
         }
     }
 }

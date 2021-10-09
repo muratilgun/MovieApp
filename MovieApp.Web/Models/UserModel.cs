@@ -1,4 +1,5 @@
-﻿using MovieApp.Web.Validators;
+﻿using Microsoft.AspNetCore.Mvc;
+using MovieApp.Web.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace MovieApp.Web.Models
 
         [Required(ErrorMessage ="Kullanıcı ismi boş bırakılamaz.")]
         [StringLength(10, ErrorMessage ="En fazla 10 karakter olmalıdır.")]
+        [Remote(action: "VerifyUserName", controller: "User")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage ="İsim alanı boş bırakılamaz.")]
